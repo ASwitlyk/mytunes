@@ -2,13 +2,7 @@
 var SongModel = Backbone.Model.extend({
   // add properties - url, title, artist
   initialize: function(song){
-    /*
-    if(song) {
-      this.set('url', song.url);
-      this.set('title', song.title);
-      this.set({artist: song.artist});
-    }
-*/
+
   },
 
   play: function(){
@@ -18,6 +12,10 @@ var SongModel = Backbone.Model.extend({
 
   enqueue: function() {
     this.trigger('enqueue', this);
+  },
+
+  ended: function() {
+    this.trigger('ended', this);
   }
 
 });
