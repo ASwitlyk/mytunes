@@ -3,11 +3,14 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),
+  template: _.template('<td class="song">(<%= artist %>)</td><td class="song"><%= title %></td><td class="queue"> queue</td>'),
 
   events: {
-    'click': function() {
+    'click .song': function() {
       this.model.play();
+    },
+    'click .queue' : function(){
+      this.model.enqueue();
     }
   },
 
